@@ -7,7 +7,7 @@ def coletar_dados():
         {
             "data": datetime.date.today(),
             "evento": "Processamento finalizado",
-            "status": "OK"},
+            "status": "OK"}
     ]
     
 #salvar em um CSV
