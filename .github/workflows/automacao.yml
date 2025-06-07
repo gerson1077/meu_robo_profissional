@@ -11,7 +11,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Commit do relatório
         run: |
-          git config --global user.email "github-actions[bot]"
+          git config --global user.email "gerson1077@gmail.com"
+          git config --global user.name "gerson1077"
           git add dados/relatorio.csv
           git commit -m "Atualização diária"
           git push
