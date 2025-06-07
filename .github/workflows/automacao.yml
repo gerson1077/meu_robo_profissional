@@ -1,20 +1,23 @@
 name: Execução diária do robô
+
 on:
   schedule:
     - cron: '0 10 * * *'  # Executa diariamente às 08:00 UTC
   workflow_dispatch:
+
 jobs:
   executar:
     runs-on: ubuntu-latest
     steps:
-      - name: clonar repositório
+      - name: Clonar repositório
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
       - name: Commit do relatório
         run: |
-          git config --global user.email "gerson1077@gmail.com"
-          git config --global user.name "gerson1077"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git add dados/relatorio.csv
-          git commit -m "Atualização diária"
+          git commit -m "Atualização diária" || echo "Nada para commitar"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
