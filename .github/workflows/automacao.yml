@@ -2,7 +2,7 @@ name: Execução diária do robô
 on:
   schedule:
     - cron: '0 10 * * *'  # Executa diariamente às 10:00 UTC
-    workflow_dispatch:
+  workflow_dispatch:
 jobs:
   executar:
     runs-on: ubuntu-latest
@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Commit do relatório
         run: |
-          git config user.name "github-actions"
+          git conf user.name "github-actions"
           git add dados/relatorio.csv
           git commit -m "Atualização diária"
           git push
